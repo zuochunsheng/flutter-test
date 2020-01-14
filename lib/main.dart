@@ -26,7 +26,15 @@ class MyApp extends StatelessWidget{
         // 我们知道，Flutter 里所有的东西都是 widget。为了把按钮放在屏幕的中间，
         // 这里使用了 Center（它是一个 widget）。
         body: Center(
-          child: RollingButton(),
+          //child: ImageWidget(),
+          //child: RollingButton(),
+          //child: MessageForm(),
+          //child: ButtonWidget(),
+          //child: ContainerWidget(),
+          //child: RowWidget(),
+          //child: ExpandedWidget(),
+          child: StackWidget(),
+
 //          child: RaisedButton(
 //            // 用户点击时候调用
 //            onPressed: _onPressed(context),
@@ -38,14 +46,53 @@ class MyApp extends StatelessWidget{
   }
 
 }
+
+class RowWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //return Row(
+    return Column(
+      // 只有一个子元素的 widget，一般使用 child 参数来设置；Row 可以包含多个子控件，
+      // 对应的则是 children。
+      children: <Widget>[
+        Text('text1'),
+        Text('text2'),
+        Text('text3'),
+        Text('text4'),
+      ],
+    );
+  }
+}
+
+class ExpandedWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          // 占一行的 2/3
+          flex: 2,
+          child: RaisedButton(child: Text('btn1'),),
+        ),
+        Expanded(
+          // 占一行的 1/3
+          flex: 1,
+          child: RaisedButton(child: Text('btn2'),),
+        ),
+      ],
+    );
+  }
+}
+
+
 class RollingButton extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-
     return _RollingState();
   }
 
 }
+
 
 class _RollingState extends State<RollingButton>{
   final _random = Random();
@@ -81,7 +128,129 @@ class _RollingState extends State<RollingButton>{
 
 }
 
+class ImageWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+      "http://img5.imgtn.bdimg.com/it/u=1069305511,3761776448&fm=26&gp=0.jpg",
+      width: 200.0,
+      height: 150.0,
+    );
+  }
+}
 
+class ContainerWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('text'),
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.all(4.0),
+      width: 80.0,
+      decoration: BoxDecoration(
+        // 背景色
+        color: Colors.grey,
+        // 圆角
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+    );
+  }
+}
+
+
+class ButtonWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var flatBtn = FlatButton(
+      onPressed: () => print('FlatButton pressed'),
+      child: Text('BUTTON'),
+    );
+    var raisedButton = RaisedButton(
+      onPressed: () => print('RaisedButton pressed'),
+      child: Text('BUTTON'),
+    );
+    return raisedButton;
+  }
+}
+
+class MessageForm extends StatefulWidget {
+  @override
+  State createState() {
+    return _MessageFormState();
+  }
+}
+
+class _MessageFormState extends State<MessageForm> {
+  var editController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    // Row、Expand 都是用于布局的控件，这里可以先忽略它们
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: TextField(
+            controller: editController,
+          ),
+        ),
+        RaisedButton(
+          child: Text("click"),
+          //onPressed: () => print('text inputted: ${editController.text}'),
+            onPressed: () {
+              showDialog(
+                // 第一个 context 是参数名，第二个 context 是 State 的成员变量
+                  context: context,
+                  builder: (_) {
+                    return AlertDialog(
+                      // dialog 的内容
+                      content: Text(editController.text),
+                      // actions 设置 dialog 的按钮
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('OK'),
+                          // 用户点击按钮后，关闭弹框
+                          onPressed: () => Navigator.pop(context),
+                        )
+                      ],
+                    );
+                  }
+              );
+            }
+
+        )
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // 手动调用 controller 的 dispose 方法以释放资源
+    editController.dispose();
+  }
+}
+
+
+
+
+class StackWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      // Aligment 的取值范围为 [-1, 1]，Stack 中心为 (0, 0)，
+      // 这里设置为 (-0.5, -0.5) 后，可以让文本对齐到 Container 的 1/4 处
+      alignment: const Alignment(-0.5, -0.5),
+      children: <Widget>[
+        Container(
+          width: 200.0,
+          height: 200.0,
+          color: Colors.blue,
+        ),
+        Text('foobar'),
+      ],
+    );
+  }
+}
 
 
 
