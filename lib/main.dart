@@ -3,9 +3,36 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart'; // 新增了这一行
 
+//void main() => runApp(MyApp());
+void main() => runApp(MyTestApp());
 
 
-void main() => runApp(MyApp());
+class MyTestApp extends StatelessWidget{
+
+  @override
+  Widget build( BuildContext context) {
+
+    return MaterialApp(
+      title: 'Flutter UI basic 1',
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Top Lakes'),
+          ),
+          body: Image.asset(
+            'images/ganen.jpg',
+            width: 600.0,
+            height: 240.0,
+            // cover 类似于 Android 开发中的 centerCrop，其他一些类型，读者可以查看
+            // https://docs.flutter.io/flutter/painting/BoxFit-class.html
+            fit: BoxFit.cover,
+
+          )
+      ),
+    );
+  }
+
+}
+
 
 class MyApp extends StatelessWidget{
 
