@@ -3,17 +3,18 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-import 'fengjingqu.dart';
+import 'formTest.dart';
 
 void main() => runApp(MaterialApp(
-    title: "Container 布局容器示例",
-    //home: LayoutDemo(),
-    home: MyApp(
-      items: new List<String>.generate(500, (i) => "Item $i"),
-    )
-    //home: FengjingquDemo(),
-    //home: RowLayoutDemo(),
+      title: "Container 布局容器示例",
+      //home: LayoutDemo(),
+     //home: MyApp(items: new List<String>.generate(500, (i) => "Item $i"),)
+      //home: FengjingquDemo(),
+      //home: RowLayoutDemo(),
+      home: LoginPage(),
     ));
+
+
 
 class LayoutDemo extends StatelessWidget {
   @override
@@ -40,14 +41,13 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: ListView.builder(
-        itemCount: items.length,
-          itemBuilder: (context,index){
-             return ListTile(
-               leading: Icon(Icons.phone),
-               title: Text("${items[index]}"),
-             );
-          }
-      ),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("${items[index]}"),
+            );
+          }),
     );
   }
 }
