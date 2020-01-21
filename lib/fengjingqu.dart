@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class LayoutDemo extends StatelessWidget {
+
+
+class FengjingquDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var imageContainer = Image.asset(
@@ -133,6 +135,7 @@ class LayoutDemo extends StatelessWidget {
   }
 }
 
+//
 class ListViewLayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -203,7 +206,8 @@ class StackLayoutDemo extends StatelessWidget {
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
                   fontFamily: "serif",
-                  color: Colors.white),
+                  color: Colors.white
+              ),
             ),
           )
         ],
@@ -333,6 +337,7 @@ class CenterLayoutDemo extends StatelessWidget {
   }
 }
 
+//常用
 class ContainerLayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -353,8 +358,8 @@ class ContainerLayoutDemo extends StatelessWidget {
                       //边框宽度为 10， 颜色为蓝灰色
                       border: Border.all(width: 10, color: Colors.blueGrey),
                       //边框弧度 为 8.0
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(8.0))),
+                      borderRadius: const BorderRadius.all(const Radius.circular(8.0))
+                  ),
                   //边距
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset("images/ganen.jpg"),
@@ -368,8 +373,7 @@ class ContainerLayoutDemo extends StatelessWidget {
                       //边框宽度为 10， 颜色为蓝灰色
                       border: Border.all(width: 10, color: Colors.blueGrey),
                       //边框弧度 为 8.0
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(8.0))),
+                      borderRadius: const BorderRadius.all(const Radius.circular(8.0))),
                   //边距
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset("images/hua.jpg"),
@@ -387,8 +391,7 @@ class ContainerLayoutDemo extends StatelessWidget {
                       //边框宽度为 10， 颜色为蓝灰色
                       border: Border.all(width: 10, color: Colors.blueGrey),
                       //边框弧度 为 8.0
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(8.0))),
+                      borderRadius: const BorderRadius.all(const Radius.circular(8.0))),
                   //边距
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset("images/xianhua.jpg"),
@@ -402,8 +405,7 @@ class ContainerLayoutDemo extends StatelessWidget {
                       //边框宽度为 10， 颜色为蓝灰色
                       border: Border.all(width: 10, color: Colors.blueGrey),
                       //边框弧度 为 8.0
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(8.0))),
+                      borderRadius: const BorderRadius.all(const Radius.circular(8.0))),
                   //边距
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset("images/katongshu.png"),
