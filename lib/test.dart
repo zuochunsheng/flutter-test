@@ -1,7 +1,15 @@
 import 'dart:math';
+
+import 'package:flutter/widgets.dart';
 class Test {
 
-    void print (){
+  void main() {
+    var test_var;
+    print("value = $test_var");
+  }
+
+
+  void printAbc (){
      // 1
 //      bool done = true;
 //      int num = 2;
@@ -71,8 +79,8 @@ class Test {
       var list6 = [1, 3, 5, 7];
       for (var ex in list6) {
         //print(ex);
-       // debugPrint('_onPressed');
-        print();
+        debugPrint('_onPressed');
+
       }
 
 
@@ -95,6 +103,7 @@ class Test {
       var map3 = <String, String>{};
 
     }
+
 
 
 
