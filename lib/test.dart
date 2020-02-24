@@ -1,16 +1,27 @@
 import 'dart:math';
+import 'Impostor.dart';
+import 'Person.dart';
+import 'Point.dart';
 
 import 'package:flutter/widgets.dart';
 class Test {
 
   void main() {
-    var test_var;
-    print("value = $test_var");
+
+    //printAbc();
+
+    printCla();
+
+
   }
 
 
+  // 基础
   void printAbc (){
-     // 1
+     // 1 var
+//    使用 var 可以声明一个不定类型的变量，但当该变量被第一次赋值时，该变量类型就被确定。
+//    从此，你不能再改变该变量的类型
+
 //      bool done = true;
 //      int num = 2;
 //      double x = 3.14;
@@ -46,12 +57,12 @@ class Test {
       var str2 = str.toUpperCase();
       var str3 = str.trim();
       assert(str == str2);
-      assert(!identical(str, str2));
+      assert(identical(str, str2));
 
 
 
       // 使用构造函数创建对象
-// 跟 var list = new List<int>(); 一样
+      // 跟 var list = new List<int>(); 一样
       var list = List<int>();
       list.add(1);
       list.add(2);
@@ -63,12 +74,16 @@ class Test {
       var list3 = <int>[];
       list3.add(1);
       list3.add(2);
+      //list3.add("4");
 
+    //const 常量数组
       var list4 = const[1, 2];
 // list4 指向的是一个常量，我们不能给它添加元素（不能修改它）
-      list4.add(3);       // error
+      //list4.add(3);       // error
 // list4 本身不是一个常量，所以它可以指向另一个对象
       list4 = [4, 5];     // it's fine
+
+
 
       const list5 = [1, 2];
 // 相当于 const list5 = const[1, 2];
@@ -85,7 +100,9 @@ class Test {
 
 
 
-      var map = Map<String, int>();
+      //map  创建方式
+      var map = Map();
+      //var map = Map<String, int>();
 // 添加
       map['foo'] = 1;
       map['bar'] = 3;
@@ -96,13 +113,120 @@ class Test {
         //print('map does not contain foobar');
       }
 
+
+      var map3 = {};
+      //var map3 = <String, String>{};
+      map3['first'] = 'partridge';
+      map3['second'] = 'turtledoves';
+      map3['fifth'] = 'golden rings';
+
+  //创建一个编译时的常量 map:
       var map2 = const {
         'foo': 2,
         'bar': 4,
       };
-      var map3 = <String, String>{};
 
-    }
+
+
+    var test_var;
+    print("value = $test_var");// null
+
+//    var x = 1;
+//    var hex = 0xDEADBEEF;
+//
+//    String oneAsString = 1.toString();
+//    var one = int.parse('1');
+//
+//    var y = 1.1;
+//    var exponents = 1.42e5;
+//    double z = 1;  // 将会自动的转换为 1.0
+//
+//    String piAsString = 3.14159.toStringAsFixed(2);//3.14
+//    var onePointOne = double.parse('1.1');
+
+
+//    var s = 'string interpolation';
+//    s = 'That deserves all caps.${s.toUpperCase()} is very handy!' ;
+//
+//    var num = 1000;
+//    var tips = 'The user num is $num.';
+//
+//
+//    //通过 r 前缀，可以创建强制单行的字符串。
+//    // 使用 r
+//    var sss = r'In a raw string, not even \ngets special treatment.';
+
+
+//// Check for an empty string.
+//    var fullName = '';
+//    assert(fullName.isEmpty);
+//
+//// Check for zero.
+//    var hitPoints = 0;
+//    assert(hitPoints <= 0);
+//
+//// Check for null.
+//    var unicorn;
+//    assert(unicorn == null);
+//
+//// Check for NaN.
+//    var iMeantToDoThis = 0 / 0;
+//    assert(iMeantToDoThis.isNaN);
+
+
+
+    var arrayInt = [1, 2, 3];
+    //Dart 会自动推导数组的类型是 List<int>，你不能向里添加非 int 类型的对象。
+    //arrayInt.add("12");错误
+
+
+    var array = ["it's string[]", 1, 2, 3];
+    array.add(5);
+    print(array);
+
+
+  }
+
+  //类
+  void printCla(){
+
+    //var p = Point();
+
+    //var p = Point.origin();
+
+    //var p  = Point(); //error
+    //var p1 = Point(1, 1);
+    //var p2 = new Point(1, 1);
+
+    //Dart 在调用对象属性前，支持先检查对象是否为 null。
+    //p?.y = 5;
+
+    //级联操作符 ..
+
+
+    var p = new Point(2, 3);
+    print(p.distanceFromOrigin);
+
+
+    //类型检测
+    //使用 is 关键字判断一个对象的类型是否属于一个类。
+//    print(p is Point);
+//    print(p is! Point);
+
+     //Dart 使用 as 关键字来进行强制类型转换。
+      var emp;
+     (emp as Point).x = 'Bob';
+
+     //通过 runtimeType 属性，可以获得一个对象的类型。
+     print('The type of a is ${emp.runtimeType}');
+
+
+    String greetBob(Person person) => person.greet('Bob');
+    print(greetBob(Person('Kathy')));
+
+    print(greetBob(Impostor()));
+
+  }
 
 
 
