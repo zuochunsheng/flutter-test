@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/pages/FirstScreen.dart';
 
 import 'formTest.dart';
 
@@ -12,7 +13,9 @@ void main() => runApp(MaterialApp(
       //home: MyApp(items: new List<String>.generate(500, (i) => "Item $i"),)
       //home: FengjingquDemo(),
 
-      home: LoginPage(),
+      //home: LoginPage(),
+      home: FirstScreen(),
+
 
 
 
@@ -31,4 +34,8 @@ class LayoutDemo extends StatelessWidget {
     );
   }
 }
+
+
+
+
 
