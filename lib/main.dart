@@ -3,8 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
+import 'package:flutter_app/pages/ProductList.dart';
 
-import 'formTest.dart';
+import 'bean/Product.dart';
+import 'formLofinTest.dart';
 
 void main() => runApp(MaterialApp(
       title: "Container 布局容器示例",
@@ -14,12 +16,16 @@ void main() => runApp(MaterialApp(
       //home: FengjingquDemo(),
 
       //home: LoginPage(),
-      home: FirstScreen(),
+      //home: FirstScreen(),
 
-
+        home: new ProductList(
+            products:
+            new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i")),
+        ),
 
 
     ));
+
 
 
 
