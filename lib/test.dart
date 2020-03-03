@@ -10,9 +10,10 @@ class Test {
 
     //printAbc();
 
-    printCla();
+    //printCla();
 
 
+    printTall();
   }
 
 
@@ -67,30 +68,30 @@ class Test {
       list.add(1);
       list.add(2);
 
-// 通过字面量创建对象，list 的泛型参数可以从变量定义推断出来。
-// 推荐使用字面量方式创建对象
+      // 通过字面量创建对象，list 的泛型参数可以从变量定义推断出来。
+      // 推荐使用字面量方式创建对象
       var list2 = [1, 2];
-// 没有元素，显式指定泛型参数为 int
+      // 没有元素，显式指定泛型参数为 int
       var list3 = <int>[];
       list3.add(1);
       list3.add(2);
       //list3.add("4");
 
-    //const 常量数组
+      //const 常量数组
       var list4 = const[1, 2];
-// list4 指向的是一个常量，我们不能给它添加元素（不能修改它）
+      // list4 指向的是一个常量，我们不能给它添加元素（不能修改它）
       //list4.add(3);       // error
-// list4 本身不是一个常量，所以它可以指向另一个对象
+      // list4 本身不是一个常量，所以它可以指向另一个对象
       list4 = [4, 5];     // it's fine
 
 
 
       const list5 = [1, 2];
-// 相当于 const list5 = const[1, 2];
-  //    list5.add(3);       // error
+    // 相当于 const list5 = const[1, 2];
+    //    list5.add(3);       // error
 
-// Dart 同样提供了 for-in 循环。
-// 因为语音设计时就考虑到了这个需求，in 在 Dart 里是一个关键字
+    // Dart 同样提供了 for-in 循环。
+    // 因为语音设计时就考虑到了这个需求，in 在 Dart 里是一个关键字
       var list6 = [1, 3, 5, 7];
       for (var ex in list6) {
         //print(ex);
@@ -101,6 +102,7 @@ class Test {
 
 
       //map  创建方式
+      //1
       var map = Map();
       //var map = Map<String, int>();
 // 添加
@@ -113,7 +115,7 @@ class Test {
         //print('map does not contain foobar');
       }
 
-
+      //2
       var map3 = {};
       //var map3 = <String, String>{};
       map3['first'] = 'partridge';
@@ -228,6 +230,64 @@ class Test {
 
   }
 
+
+  void printTall(){
+
+
+//    Future<String> logName = login();
+//    logName.then((t){
+//      //..
+//      print(t);
+//    });
+
+    Future.wait([
+      // 2秒后返回结果
+      Future.delayed(new Duration(seconds: 2), () {
+        return "hello";
+      }),
+      // 4秒后返回结果
+      Future.delayed(new Duration(seconds: 4), () {
+        return " world";
+      })
+    ]).then((results) {
+      //执行成功会走到这里
+      print(results[0]+results[1]);
+    }).catchError((e){
+      //执行失败会走到这里
+      print(e);
+    }).whenComplete((){
+      //无论成功或失败都会走到这里
+      print("whenComplete");
+    });;
+
+  }
+
+
+  // async
+  task() async {
+    var entrypoint = await findEntrypoint();
+    print(entrypoint);
+  }
+
+  //耗时操作
+  findEntrypoint() {
+
+  }
+
+
+  //异步函数 Future
+  Future<String> login() async {
+    //..
+    return  "123";
+  }
+
+
+  Future<String> taskFile(String path) async {
+    String r = await getFileContent(path);
+    return r;
+  }
+  //耗时操作
+  getFileContent(String path) {}
 
 
 
