@@ -24,25 +24,28 @@ void main() => runApp(MaterialApp(
 //            new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i")),
 //        ),
         home:
-        //MyStatefulWidget()
-        Scaffold(
-          appBar: AppBar(title: Text("rows"),),
-
-          body: Container(
-            color: Colors.grey[300],
-            child: Center(
-              child:
-              //_buildIcons(),
-              //_buildImage(),
-              _buildStack(),
-              // text ,
-              // buildRowImg() ,
-              // flatButton ,
-            ),
-          ),
-        ),
+        MyStatefulWidget()
+//        Scaffold(
+//          appBar: AppBar(title: Text("rows"),),
+//
+//          body: Container(
+//            color: Colors.grey[300],
+//            child: Center(
+//              child:
+//              //_buildIcons(),
+//              //_buildImage(),
+//              _buildStack(),
+//              // text ,
+//              // buildRowImg() ,
+//              // flatButton ,
+//            ),
+//          ),
+//        ),
 
     ));
+
+
+
 
 
 
@@ -132,6 +135,11 @@ Widget _buildIcons() => Center(
   ),
 );
 
+
+
+
+
+
 // StatefulWidget
 class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget({Key key}) : super(key: key);
@@ -140,17 +148,57 @@ class MyStatefulWidget extends StatefulWidget {
   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _MyStatefulWidgetState extends State<MyStatefulWidget> with SingleTickerProviderStateMixin {
   int _count = 0;
   int _currentIndex = 0;
+//
+//  var tab3 = Tab(
+//      text:"ios",
+//      icon:Icon(Icons.android)
+//  );
+  var tabs_1  = [
+    Tab(
+        text:"Android",
+        icon:Icon(Icons.android)
+    ),
+    Tab(
+        text:"ios",
+        icon:Icon(Icons.android)
+    ),
+    Tab(
+        text:"abc",
+        icon:Icon(Icons.android)
+    )
+  ];
+
+
+  final List<Tab> tabs = <Tab>[
+    Tab(text: '选项一',icon: Icon(Icons.add_shopping_cart),),
+    Tab(text: '选项二',icon: Icon(Icons.wifi_tethering),),
+    Tab(text: '选项三',icon: Icon(Icons.airline_seat_flat_angled),)
+  ];
+
+  TabController _tabController;
+
+  @override
+  void initState() {
+    print('初始化 数据...');
+    _tabController = new TabController(
+        vsync: this,//固定写法
+        length: tabs.length   //指定tab长度
+    );
+    super.initState();
+  }
+
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
           title: Text('Scanffold Page'),
+          centerTitle: true,
           // 返回
           leading: IconButton(
-              icon: Icon(Icons.menu),
+              icon: Icon(Icons.arrow_back),//Icons.menu
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -159,7 +207,41 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             IconButton(
                 icon: Icon(Icons.share),
                 onPressed: () {debugPrint("分享");},
-                tooltip: 'Share Button Clicked!')
+                tooltip: 'Share Button Clicked!'),
+            IconButton(
+              icon: Icon(Icons.alarm),
+              tooltip: "Alarm",
+              onPressed: () {
+                print("Alarm");
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.home),
+              tooltip: "Home",
+              onPressed: () {
+                print("Home");
+              },
+            ),
+            PopupMenuButton(
+              itemBuilder: (BuildContext context) =>
+              <PopupMenuItem<String>>[
+                PopupMenuItem<String>(child: Text("热度"), value: "hot",),
+                PopupMenuItem<String>(child: Text("最新"), value: "new",),
+              ],
+              onSelected: (String action) {
+                switch (action) {
+                  case "hot":
+                    print("hot");
+                    break;
+                  case "new":
+                    print("new");
+                    break;
+                }
+              },
+              onCanceled: () {
+                print("onCanceled");
+              },
+            )
           ],
           elevation: 5.0,
           backgroundColor: Colors.yellow,
@@ -167,15 +249,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           brightness: Brightness.dark,
           titleSpacing: 10,
           toolbarOpacity: 1.0,
-//          bottom: TabBar(
-//              labelColor: Colors.black,
-//              unselectedLabelColor: Colors.grey,
-//              indicatorColor: Colors.white,
-//              controller: TabController(
-//
-//              ),
-//              tabs: tabs.map((e) => Tab(text: e)).toList()
-//          ),
+          bottom: TabBar(
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey,
+              indicatorColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.tab,
+              //isScrollable: true,
+              controller: _tabController,
+              tabs:tabs,
+              //tabs_1.map((e) => Tab()).toList(),
+              onTap: (index){
+                setState(() {
+                  // ..
+                  _count++;
+                });
+              },
+          ),
+
         ),
       body: Center(
         child: Text('You have pressed the button $_count times.'),
