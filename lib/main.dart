@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -31,7 +32,8 @@ void main() => runApp(MaterialApp(
             color: Colors.grey[300],
             child: Center(
               child:
-              _buildIcons(),
+              //_buildIcons(),
+              _buildImage(),
               // text ,
               // buildRowImg() ,
               // flatButton ,
@@ -41,6 +43,34 @@ void main() => runApp(MaterialApp(
 
     ));
 
+Widget _buildImage() => Center(
+  child:
+    // 资源图片
+    //new Image.asset('images/ganen.jpg');
+    //网络图片
+
+    // 本地文件图片
+    //new Image.file(new File("/Users/zuochunsheng/Desktop/android-demo/flutter-test/localImages/sg.png"));
+
+    // Uint8List图片
+    //new Image.memory(bytes),
+
+    //使用ImageProvider加载图片
+    //new Image(image: new NetworkImage("https://flutter.io/images/homepage/screenshot-2.png"));
+
+    //网络图片
+    Image.network(
+      //'https://raw.githubusercontent.com/chenBingX/img/master/其它/download.jpg',
+      'https://www.baidu.com/img/bd_logo1.png',
+      width: 200,
+      height: 200,
+      //可以配合 colorBlendMode 修改图片颜色。
+      color: Colors.green,
+      alignment: Alignment.center,
+      repeat: ImageRepeat.repeat,
+
+   )
+);
 
 Widget _buildIcons() => Center(
   child: Row(
