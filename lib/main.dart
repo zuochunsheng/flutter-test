@@ -22,19 +22,148 @@ void main() => runApp(MaterialApp(
 //            products:
 //            new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i")),
 //        ),
-        home: Scaffold(
-          appBar: AppBar(title: Text("rows"),),
-          body: Container(
-            color: Colors.grey[300],
-            child: Center(
-              child: text ,
-              //child: _buildRowImg() ,
-              //child: flatButton ,
-            ),
-          ),
-        ),
+        home: MyStatefulWidget()
+//        Scaffold(
+//          appBar: AppBar(title: Text("rows"),),
+//
+//          body: Container(
+//            color: Colors.grey[300],
+//            child: Center(
+//              child: text ,
+//              //child: _buildRowImg() ,
+//              //child: flatButton ,
+//            ),
+//          ),
+//        ),
 
     ));
+
+
+
+// StatefulWidget
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _count = 0;
+  int _currentIndex = 0;
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:AppBar(
+          title: Text('Scanffold Page'),
+          // 返回
+          leading: IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.share),
+                onPressed: () {debugPrint("分享");},
+                tooltip: 'Share Button Clicked!')
+          ],
+          elevation: 5.0,
+          backgroundColor: Colors.yellow,
+          //状态栏
+          brightness: Brightness.dark,
+          titleSpacing: 10,
+          toolbarOpacity: 1.0,
+//          bottom: TabBar(
+//              labelColor: Colors.black,
+//              unselectedLabelColor: Colors.grey,
+//              indicatorColor: Colors.white,
+//              controller: TabController(
+//
+//              ),
+//              tabs: tabs.map((e) => Tab(text: e)).toList()
+//          ),
+        ),
+      body: Center(
+        child: Text('You have pressed the button $_count times.'),
+      ),
+      backgroundColor: Colors.lime,
+       // 是否避免键盘弹起时挡住视图。默认为true。为false键盘会覆盖在视图上
+      resizeToAvoidBottomInset: false,
+      //一种特殊的漂浮Button。
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {
+          _count++;
+        }),
+        tooltip: 'Increment Counter',
+        child: Icon(Icons.add),
+      ),
+      //设置floatingActionButton的位置
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      //设置一组底部的Button
+//      persistentFooterButtons: <Widget>[
+//        Image.asset(
+//          'images/ganen.jpg',
+//          width: 100,
+//          height: 50,
+//        ),
+//        Image.asset(
+//          'images/katongshu.png',
+//          width: 100,
+//          height: 50,
+//        ),
+//      ],
+
+      //底部导航栏。在 persistentFooterButtons 下面
+      bottomNavigationBar:
+      BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('首页'),
+             // 设置当item被选中时的 icon
+              activeIcon: Icon(Icons.pages)
+//              Image.asset(
+//                'images/ganen.jpg',
+//                width: 20,
+//                height: 20,
+//              ),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              title: Text('收藏')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_shopping_cart),
+              title: Text('订单')
+          ),
+        ],
+        currentIndex: _currentIndex,
+        //选中的item的颜色
+        fixedColor: Colors.blue,
+        //当一个item被点击的时候会回调
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+            //
+          });
+        },
+      )
+//      BottomAppBar(
+//        child: Container(
+//          height: 50.0,
+//
+//        ),
+//        elevation: 5,
+//      ),
+
+      //抽屉菜单
+      //drawer: container,
+    );
+  }
+}
+
 
 
 Widget text = Text(
@@ -65,6 +194,7 @@ Widget text = Text(
 
 );
 
+// row / column
 Widget _buildRowImg() => Row(
   // 主要对齐方式
   mainAxisAlignment: MainAxisAlignment.center,
@@ -149,6 +279,8 @@ var container = Container(
       // 添加图片
       child: Image.asset("images/ganen.jpg"),
     )));
+
+
 
 class LayoutDemo extends StatelessWidget {
   @override
