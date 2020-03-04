@@ -27,7 +27,8 @@ void main() => runApp(MaterialApp(
           body: Container(
             color: Colors.grey[300],
             child: Center(
-              child: _buildRowImg() ,
+              child: text ,
+              //child: _buildRowImg() ,
               //child: flatButton ,
             ),
           ),
@@ -35,6 +36,34 @@ void main() => runApp(MaterialApp(
 
     ));
 
+
+Widget text = Text(
+  'Hello,  How are you? How are you?How are you?How are you?',
+  // 对齐方式
+  textAlign: TextAlign.center,
+  // 省略方式
+  overflow: TextOverflow.clip,
+   // TextOverflow.ellipsis
+    //TextOverflow.fade
+  // 文字风格
+  style: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.deepPurpleAccent,
+      fontSize: 30,
+      decoration: TextDecoration.overline
+         //TextDecoration.underline
+         //lineThrough
+         // none
+
+  ),
+  // 文字方向
+  textDirection: TextDirection.ltr,
+  maxLines: 2,
+//  textSpan:TextSpan(
+//
+//  )
+
+);
 
 Widget _buildRowImg() => Row(
   // 主要对齐方式
