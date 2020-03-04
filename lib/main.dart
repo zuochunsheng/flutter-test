@@ -8,37 +8,59 @@ import 'package:flutter_app/pages/ProductList.dart';
 import 'bean/Product.dart';
 import 'formLofinTest.dart';
 
-//void main() => runApp(MaterialApp(
-//      title: "Container 布局容器示例",
-//      //home: LayoutDemo(),
-//      //home: RowLayoutDemo(),
-//      //home: MyApp(items: new List<String>.generate(500, (i) => "Item $i"),)
-//      //home: FengjingquDemo(),
-//
-//      //home: LoginPage(),
-//      //home: FirstScreen(),
-//
+void main() => runApp(MaterialApp(
+      title: "Container 布局容器示例",
+      //home: LayoutDemo(),
+      //home: RowLayoutDemo(),
+      //home: MyApp(items: new List<String>.generate(500, (i) => "Item $i"),)
+      //home: FengjingquDemo(),
+
+      //home: LoginPage(),
+      //home: FirstScreen(),
+
 //        home: new ProductList(
 //            products:
 //            new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i")),
 //        ),
-//
-//
-//    ));
+        home: Scaffold(
+          appBar: AppBar(title: Text("rows"),),
+          body: Container(
+            color: Colors.grey[300],
+            child: Center(
+              child: _buildRowImg() ,
+              //child: flatButton ,
+            ),
+          ),
+        ),
 
-void main() => runApp(
-        // 在中心
-        Center(
-            child:
-                // container
-                // raiseButton
-                flatButton
-                //iconButton
+    ));
 
 
-        )
+Widget _buildRowImg() => Row(
+  // 主要对齐方式
+  mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.start,//start center end
+                    //spaceBetween: 中间留间隙。
+                    //spaceAround: 每个子 Widget 两边的间隙均分
+                    //spaceEvenly: 整体均分间隙
+
+  crossAxisAlignment: CrossAxisAlignment.start,
+  //crossAxisAlignment  CrossAxisAlignment.start center end  baseline
+  // strech  让children填满交叉轴方向
+  children: [
+    Image.asset(
+      'images/ganen.jpg',
+      width: 100,
+      height: 100,
+    ),
+    Image.asset(
+      'images/katongshu.png',
+      width: 100,
+      height: 100,
+    ),
+
+  ],
 );
-
 
 var flatButton =  FlatButton(
   child: Text("normal"),
