@@ -33,7 +33,8 @@ void main() => runApp(MaterialApp(
             child: Center(
               child:
               //_buildIcons(),
-              _buildImage(),
+              //_buildImage(),
+              _buildStack(),
               // text ,
               // buildRowImg() ,
               // flatButton ,
@@ -42,6 +43,35 @@ void main() => runApp(MaterialApp(
         ),
 
     ));
+
+
+
+Widget _buildStack() => Stack(
+  // 影响非第一个 Widget 的相对位置
+  alignment: Alignment(0.5, 0.5),
+  children: [
+    // 第一个 Widget
+    CircleAvatar(
+      backgroundImage: AssetImage('assets/icons/share2.png'),
+      radius: 100,
+    ),
+    // 第二个 Widget
+    Container(
+      padding: EdgeInsets.all(3),
+      decoration: BoxDecoration(
+        color: Colors.black45,
+      ),
+      child: Text(
+        'CoorChice',
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    ),
+  ],
+);
 
 Widget _buildImage() => Center(
   child:
