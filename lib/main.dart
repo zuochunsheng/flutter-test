@@ -27,15 +27,45 @@ import 'formLofinTest.dart';
 //    ));
 
 void main() => runApp(
-    // 在中心
-    Center(
+        // 在中心
+        Center(
+            child:
+                // container
+                // raiseButton
+                flatButton
+                //iconButton
 
-        child: RaisedButton(
-          child: Text("normal"),
-          onPressed: () => {},
-          elevation:5.0,
+
         )
-    )
+);
+
+
+var flatButton =  FlatButton(
+  child: Text("normal"),
+  onPressed: () => {},
+  textColor: Colors.black26,//文字颜色
+  color: Colors.redAccent,// 背景颜色
+//  disabledColor: ,//禁用时 背景颜色
+//  disabledTextColor: ,//禁用时 文字颜色
+  highlightColor: Colors.blueAccent,//按下时文字颜色
+  splashColor:Colors.yellow ,//点击时，水波动画中水波的颜色
+  padding: EdgeInsets.all(4.0),
+  //colorBrightness: ,//Button 主题，默认是浅色主题
+//  shape:  ,//Button 的形状
+);
+
+var iconButton = IconButton(
+  icon: Icon(Icons.thumb_up),
+  //onPressed: () => {},
+  tooltip: 'You clicked me!',
+);
+
+var raiseButton = RaisedButton(
+  child: Text("normal"),
+  onPressed: () => {
+    debugPrint("raiseButton")
+  },
+  elevation:5.0,
 );
 
 // 添加 Container
@@ -53,28 +83,21 @@ var container = Container(
 //            ),
     // 将子 Widget 设置为居中
     child: Center(
-      // 添加 Container
+        // 添加 Container
         child: Container(
-          width: 150.0,
-          height: 150.0,
-          // 设置边框装饰
-          decoration: BoxDecoration(
-              color: Colors.deepPurpleAccent,
-              // 设置边框
-              border: Border.all(width: 10, color: Colors.black38),
-              // 设置圆角
-              borderRadius: BorderRadius.all(Radius.circular(8))
-          ),
-          margin: EdgeInsets.all(4),
-          // 添加图片
-          child: Image.asset("images/ganen.jpg"),
-        )
-    )
-);
-
-
-
-
+      width: 150.0,
+      height: 150.0,
+      // 设置边框装饰
+      decoration: BoxDecoration(
+          color: Colors.deepPurpleAccent,
+          // 设置边框
+          border: Border.all(width: 10, color: Colors.black38),
+          // 设置圆角
+          borderRadius: BorderRadius.all(Radius.circular(8))),
+      margin: EdgeInsets.all(4),
+      // 添加图片
+      child: Image.asset("images/ganen.jpg"),
+    )));
 
 class LayoutDemo extends StatelessWidget {
   @override
