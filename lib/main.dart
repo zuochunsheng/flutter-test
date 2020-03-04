@@ -22,23 +22,37 @@ void main() => runApp(MaterialApp(
 //            products:
 //            new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i")),
 //        ),
-        home: MyStatefulWidget()
-//        Scaffold(
-//          appBar: AppBar(title: Text("rows"),),
-//
-//          body: Container(
-//            color: Colors.grey[300],
-//            child: Center(
-//              child: text ,
-//              //child: _buildRowImg() ,
-//              //child: flatButton ,
-//            ),
-//          ),
-//        ),
+        home:
+        //MyStatefulWidget()
+        Scaffold(
+          appBar: AppBar(title: Text("rows"),),
+
+          body: Container(
+            color: Colors.grey[300],
+            child: Center(
+              child:
+              _buildIcons(),
+              // text ,
+              // buildRowImg() ,
+              // flatButton ,
+            ),
+          ),
+        ),
 
     ));
 
 
+Widget _buildIcons() => Center(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+      Icon(Icons.account_box, color: Colors.black, size: 26),
+      Icon(Icons.add_a_photo, color: Colors.black, size: 26),
+      Icon(Icons.add_circle, color: Colors.black, size: 26),
+      Icon(Icons.android, color: Colors.black, size: 26),
+    ],
+  ),
+);
 
 // StatefulWidget
 class MyStatefulWidget extends StatefulWidget {
