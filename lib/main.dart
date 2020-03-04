@@ -46,6 +46,7 @@ void main() => runApp(MaterialApp(
 
 
 
+// 类似 祯布局
 Widget _buildStack() => Stack(
   // 影响非第一个 Widget 的相对位置
   alignment: Alignment(0.5, 0.5),
@@ -70,6 +71,23 @@ Widget _buildStack() => Stack(
         ),
       ),
     ),
+    Container(
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.black45,
+      ),
+      child: Column(
+         children: <Widget>[
+           Text("logo",
+               style: TextStyle(
+                   color: Colors.white
+               ),
+           ),
+           FlutterLogo(),
+         ],
+
+      ),
+    )
   ],
 );
 
