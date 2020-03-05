@@ -90,7 +90,9 @@ void main() => runApp(MaterialApp(
           //boxDecoration
           //clipRRect
           //clipOval
-          clipPath
+          //clipPath
+
+          list
       ),
     ),
   ),

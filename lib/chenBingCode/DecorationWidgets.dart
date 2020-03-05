@@ -4,6 +4,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/dartPage/Rectangle.dart';
 
 
+var list = ListView(
+  children: <Widget>[
+    MyWidget(Colors.green),
+    Opacity(
+      opacity: 0.3,
+      child:MyWidget(Colors.blue),
+    ),
+    MyWidget(Colors.yellow)
+  ],
+);
+
+class MyWidget extends StatelessWidget  {
+  MaterialColor color;
+  MyWidget(this.color);
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      width: 100,
+      height: 50,
+      color: color,
+    );
+  }
+}
+
 //ClipRRect 用于将一个 Widget 剪裁为圆角矩形。
 var clipRRect = ClipRRect(
   borderRadius: BorderRadius.all(Radius.circular(12)),
