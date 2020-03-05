@@ -87,7 +87,10 @@ void main() => runApp(MaterialApp(
           //singleChildScrollView
           //PageviewWidget()
 
-          boxDecoration
+          //boxDecoration
+          //clipRRect
+          //clipOval
+          clipPath
       ),
     ),
   ),
