@@ -3,6 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/dartPage/Rectangle.dart';
 
+// Flutter 提供了 SafeArea，用于包裹视图，让视图可以自动避开遮挡，完整的展示出来。
+//root 节点使用的是 Scaffold 的话，已经自动处理了这些不安全的因素，所以就不用添加 SafeArea 了
+var safeArea = SafeArea(
+    child: MyWidget(Colors.green),
+);
+
 
 var list = ListView(
   children: <Widget>[
