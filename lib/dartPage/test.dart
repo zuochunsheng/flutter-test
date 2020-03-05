@@ -186,6 +186,8 @@ class Test {
     array.add(5);
     print(array);
 
+   var random = Random();
+   var numberRandom = random.nextInt(11);
 
   }
 

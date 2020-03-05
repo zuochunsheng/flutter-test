@@ -242,7 +242,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with SingleTickerPr
               onPressed: () {
                 Navigator.pop(context);
               },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip
+          ),
           actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.share),
