@@ -2,8 +2,76 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 
-//----- Grid ----------
 
+
+
+
+// pageView
+class PageviewWidget extends StatefulWidget{
+  @override
+  _PageviewWidgetState createState() {
+    return _PageviewWidgetState();
+  }
+
+}
+
+class _PageviewWidgetState extends State<PageviewWidget>{
+  var  pageController = PageController();
+  @override
+  Widget build(BuildContext context) {
+
+    return PageView.builder(
+      controller: PageController(),
+      itemBuilder: (BuildContext context, int index) {
+        return _buildPage_1(context);
+      },
+      itemCount: 5,
+    ) ;
+//    return PageView(
+//      controller: pageController,
+//      children: <Widget>[
+//        _buildPage_1(context),
+//        _buildPage_1(context),
+//        _buildPage_1(context),
+//        _buildPage_1(context),
+//      ],
+//    );
+  }
+
+  Widget _buildPage_1(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: 150,
+      color: colors[random.nextInt(colors.length)],
+    );
+  }
+
+}
+
+// SingleChildScrollView
+var singleChildScrollView = SingleChildScrollView(
+  child: Column(
+    children: _buildColumnItems(),
+  ),
+);
+
+
+
+
+_buildColumnItems() {
+  List<Widget> items =[];
+  for (var i = 0; i < 50; i++) {
+    items.add(Container(
+      alignment: Alignment.center,
+      height: 150,
+      color: colors[random.nextInt(colors.length)],
+    ));
+  }
+  return items;
+}
+
+
+//----- Grid ----------
 
 var gridCount = GridView.count(
   //水平子Widget之间间距

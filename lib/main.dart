@@ -83,7 +83,8 @@ void main() => runApp(MaterialApp(
          // buildGrid3()
           //buildGrid4()
 
-          singleChildScrollView
+          //singleChildScrollView
+          PageviewWidget()
       ),
     ),
   ),
@@ -91,28 +92,10 @@ void main() => runApp(MaterialApp(
 ));
 
 
-// pageView
-// SingleChildScrollView
-var singleChildScrollView = SingleChildScrollView(
-  child: Column(
-    children: _buildColumnItems(),
-  ),
-);
 
 
 
 
-_buildColumnItems() {
-  List<Widget> items =[];
-  for (var i = 0; i < 50; i++) {
-    items.add(Container(
-      alignment: Alignment.center,
-      height: 150,
-      color: colors[random.nextInt(colors.length)],
-    ));
-  }
-  return items;
-}
 
 
 class LayoutDemo extends StatelessWidget {
