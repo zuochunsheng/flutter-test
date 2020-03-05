@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/chenBingCode/DecorationWidgets.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
 import 'package:flutter_app/pages/ProductList.dart';
 
@@ -84,13 +85,14 @@ void main() => runApp(MaterialApp(
           //buildGrid4()
 
           //singleChildScrollView
-          PageviewWidget()
+          //PageviewWidget()
+
+          boxDecoration
       ),
     ),
   ),
 
 ));
-
 
 
 
