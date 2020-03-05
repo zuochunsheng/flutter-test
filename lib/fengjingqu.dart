@@ -154,7 +154,11 @@ class FengjingquDemo extends StatelessWidget {
               children: <Widget>[
                 Container(
                   //与下面文本镉一定距离
-                  padding: const EdgeInsets.only(bottom: 8),
+                  //padding: const EdgeInsets.all(8.0),
+                  //padding: const EdgeInsets.only(bottom: 8),
+                  //padding: const EdgeInsets.only(top:8,right: 3),
+                  //在水平或垂直方向上对称均分所给参数，作为边距。
+                  padding: const EdgeInsets.symmetric(vertical: 8),//horizontal
                   child: Text(
                     "风景区地址",
                     style: TextStyle(fontWeight: FontWeight.bold),
