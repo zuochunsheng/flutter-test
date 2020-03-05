@@ -13,7 +13,15 @@ import 'chenBingCode/baseWidgets.dart';
 import 'formLofinTest.dart';
 
 
-
+var random = Random();
+var colors = [
+  Colors.redAccent,
+  Colors.green,
+  Colors.deepOrangeAccent,
+  Colors.lime,
+  Colors.blue,
+  Colors.black87
+];
 
 
 
@@ -69,11 +77,13 @@ void main() => runApp(MaterialApp(
           child:
 
           //customScrollView
-          //_buildGridView()
+
           //gridCount
-          //buildGrid()
+          //buildGrid2()
          // buildGrid3()
-          buildGrid4()
+          //buildGrid4()
+
+          singleChildScrollView
       ),
     ),
   ),
@@ -81,6 +91,28 @@ void main() => runApp(MaterialApp(
 ));
 
 
+// pageView
+// SingleChildScrollView
+var singleChildScrollView = SingleChildScrollView(
+  child: Column(
+    children: _buildColumnItems(),
+  ),
+);
+
+
+
+
+_buildColumnItems() {
+  List<Widget> items =[];
+  for (var i = 0; i < 50; i++) {
+    items.add(Container(
+      alignment: Alignment.center,
+      height: 150,
+      color: colors[random.nextInt(colors.length)],
+    ));
+  }
+  return items;
+}
 
 
 class LayoutDemo extends StatelessWidget {

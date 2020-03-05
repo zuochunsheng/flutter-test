@@ -1,10 +1,9 @@
-
+import 'dart:math';
+import 'package:flutter/material.dart';
 
 
 //----- Grid ----------
-import 'dart:math';
 
-import 'package:flutter/material.dart';
 
 var gridCount = GridView.count(
   //水平子Widget之间间距
@@ -62,7 +61,7 @@ Widget getItemContainer(String item) {
 //---------grid 方法二 ------
 
 //@override  BuildContext context
-Widget buildGrid() {
+Widget buildGrid2() {
   List<String> datas = getDataList();
   return GridView.builder(
       itemCount: datas.length,
