@@ -5,6 +5,18 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/dartPage/Rectangle.dart';
 
+//有时，你可能需要拦截返回按键（包括 Android 系统的系统返回按键），以触发交互。
+//比如，在重要业务环节，询问用户是否确定离开，以防止用户错误的操作。
+var willPopScope = WillPopScope(
+    child: backdropFilter,
+    //当点击返回时，会触发回调
+    onWillPop: () async {
+      print('onWillPop');
+      // 返回 true 表示允许返回
+      // 返回 false 表示不允许返回
+      return true;
+    }
+);
 
 //需要注意的是，它相当于一个蒙层，因此你需要使用类似于 Stack 的 Widget，
 // 来使 BackdropFilter 盖在你的视图上。
