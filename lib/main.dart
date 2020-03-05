@@ -92,7 +92,8 @@ void main() => runApp(MaterialApp(
           //clipOval
           //clipPath
 
-          list
+          //list
+          backdropFilter
       ),
     ),
   ),

@@ -1,7 +1,28 @@
 
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/dartPage/Rectangle.dart';
+
+
+//需要注意的是，它相当于一个蒙层，因此你需要使用类似于 Stack 的 Widget，
+// 来使 BackdropFilter 盖在你的视图上。
+var backdropFilter = Stack(
+  children: <Widget>[
+    Center(
+      child: Image.asset('images/ganen.jpg'),
+    ),
+    BackdropFilter(
+        // 设置高斯模糊参数
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        // 设置蒙层
+        child: Container(
+          color: Colors.black.withOpacity(0),
+        ))
+  ],
+);
+
 
 // Flutter 提供了 SafeArea，用于包裹视图，让视图可以自动避开遮挡，完整的展示出来。
 //root 节点使用的是 Scaffold 的话，已经自动处理了这些不安全的因素，所以就不用添加 SafeArea 了
