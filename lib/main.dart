@@ -37,16 +37,15 @@ void main() => runApp(MaterialApp(
               //_buildImage(),
               //_buildStack(),
               // text ,
-              // buildRowImg() ,
+              //buildRowImg ,
               // flatButton ,
-              textField
+              //textField
+              wrap
             ),
           ),
         ),
 
     ));
-
-
 
 
 

@@ -3,6 +3,24 @@ import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+//
+var wrap = Wrap(
+  //direction: Axis.horizontal,
+  direction: Axis.vertical,
+  alignment: WrapAlignment.start,
+  runAlignment: WrapAlignment.end,
+  spacing: 20,
+  runSpacing: 50,
+  verticalDirection: VerticalDirection.down,
+  children: <Widget>[
+    buildRowImg,
+    buildRowImg,
+    buildRowImg,
+
+  ],
+);
+
+
 
 var textField = Column(
 
@@ -399,7 +417,7 @@ Widget text = Text(
 );
 
 // row / column
-Widget _buildRowImg() => Row(
+Widget buildRowImg = Row(
   // 主要对齐方式
   mainAxisAlignment: MainAxisAlignment.center,
   //mainAxisAlignment: MainAxisAlignment.start,//start center end
