@@ -10,20 +10,33 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Home Page'),
-        ),
-        body: GestureDetector(
-              onTap: () {
-                Navigator.pop(context, 'HomePage popped!');
-              },
-              child: Container(
-                color: Colors.white,
-                child: Center(
-                  child: Text(data != null ? data.data : 'There is no data!'),
-                ),
+    return WillPopScope(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text('Home Page'),
+          ),
+          body: GestureDetector(
+            onTap: () {
+              print('onTap');
+              Navigator.pop(context, 'HomePage 按钮返回!');
+            },
+            child: Container(
+              color: Colors.white,
+              child: Center(
+                child: Text(data != null ? data.data : 'There is no data!'),
               ),
-            ));
+            ),
+          )),
+        //当点击返回时，会触发回调
+        onWillPop: () async {
+          print('onWillPop');
+          Navigator.pop(context, 'HomePage 返回键返回!');
+          // 返回 true 表示允许返回
+          // 返回 false 表示不允许返回
+          //return false;
+        }
+    );
+
   }
+
 }

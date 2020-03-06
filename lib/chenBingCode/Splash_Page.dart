@@ -51,8 +51,7 @@ class _SplashPage extends State<SplashPage> {
     var data = PageData('Come form SplashPage!');
     // 使用 Navigator 跳转页面
     var result = await Navigator.push(
-        context,
-        MaterialPageRoute(
+        context, MaterialPageRoute(
             builder: (context) => HomePage(
               data: data,
             )));
