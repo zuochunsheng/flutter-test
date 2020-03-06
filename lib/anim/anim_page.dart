@@ -14,7 +14,6 @@ class _AnimPage2 extends State<AnimPage2> with TickerProviderStateMixin{
   var h = 100.0;
 
   Animation<double> animation;
-  //Animation<double> animation2;
 
   Animation animation3;
   AnimationController animationController;
@@ -38,12 +37,9 @@ class _AnimPage2 extends State<AnimPage2> with TickerProviderStateMixin{
         end: 100.0*2.0
     ).animate(animationController);
 
-//    animation2 = Tween<double>(
-//        begin: 0.0,
-//        end: 1.0
-//    ).animate(animationController);
 
-    // 创建 CurveAnimation
+
+    //2.2 创建 CurveAnimation
      animation3 = CurvedAnimation(
         parent: animationController,
         curve:

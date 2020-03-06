@@ -4,7 +4,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/anim/CustomCurve.dart';
 import 'package:flutter_app/anim/anim_page.dart';
+import 'package:flutter_app/anim/animatedWidget.dart';
 import 'package:flutter_app/chenBingCode/DecorationWidgets.dart';
 import 'package:flutter_app/chenBingCode/DetailScreen.dart';
 import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
@@ -96,7 +98,9 @@ void main() => runApp(MaterialApp(
   home:
   //MyStatefulWidget()
   //SplashPage()
-   AnimPage2()
+
+   //AnimPage2()
+  ScaleAnimationRoute()
 
 //  Scaffold(
 //    appBar: AppBar(title: Text("布局"),),

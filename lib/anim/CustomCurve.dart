@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 
 
 //2.1 自定义 Curve
@@ -18,5 +19,26 @@ class _BounceInCurve extends Curve {
 
   num _bounce(double d) {
     return d;
+  }
+}
+
+
+// AnimatedWidget
+class AnimatedImage extends AnimatedWidget {
+  AnimatedImage({Key key, Animation<double> animation})
+      : super(key: key, listenable: animation);
+
+  Widget build(BuildContext context) {
+    final Animation<double> animation = listenable;
+    return Center(
+        child: SizedBox(
+          // 获取 Animation 中的值
+          width: animation.value,
+          height: animation.value,
+          child: Container(
+            color: Colors.lightBlue,
+          ),
+        )
+    );
   }
 }
