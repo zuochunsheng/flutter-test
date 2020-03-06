@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_app/chenBingCode/DecorationWidgets.dart';
+import 'package:flutter_app/chenBingCode/DetailScreen.dart';
 import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
 import 'package:flutter_app/chenBingCode/SplashPage.dart';
 import 'package:flutter_app/chenBingCode/StatefulWidget.dart';
@@ -15,6 +16,7 @@ import 'bean/Product.dart';
 import 'chenBingCode/ScrollWidgets.dart';
 import 'chenBingCode/baseWidgets.dart';
 import 'formLofinTest.dart';
+import 'pages/SecondScreen.dart';
 
 
 var random = Random();
@@ -69,10 +71,22 @@ var colors = [
 
 
 void main() => runApp(MaterialApp(
+  // 设置第一个页面，即启动页
+    initialRoute: '/',
+    routes: {
+      // 注册一个页面
+      '/': (context) => FirstScreen(),
+      // 注册第二个页面
+      '/home': (context) => HomePage(),
+      '/myStatefulWidget': (context) => MyStatefulWidget(),
+      '/second': (context) => SecondScreen(),
+      '/splash': (context) => SplashPage(),
+    },
+
   title: "Container 布局容器示例",
-  home:
+  //home:
   //MyStatefulWidget()
-  SplashPage()
+  //SplashPage()
 
 //  Scaffold(
 //    appBar: AppBar(title: Text("布局"),),

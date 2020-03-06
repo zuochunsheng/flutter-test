@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/chenBingCode/DetailScreen.dart';
 import 'package:flutter_app/chenBingCode/baseWidgets.dart';
@@ -10,30 +8,25 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
-      alignment: Alignment(0, 0.75),// x, y
+      alignment: Alignment(0, 0.75), // x, y
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(splashUrl),
-
-              )
-          ),
+            image: NetworkImage(splashUrl),
+          )),
         ),
         GestureDetector(
           // 设置点击事件
           onTap: () {
             // 使用 Navigator 跳转页面
-            Navigator.push(context,
-                MaterialPageRoute(builder: (_) {
-              return
-                HomePage();
-                //MyStatefulWidget();
-            }
-            )
-            );
+//            Navigator.push(context, MaterialPageRoute(builder: (_) {
+//              return HomePage();
+//              //MyStatefulWidget();
+//            }));
+
+            Navigator.pushNamed(context, "/home");
           },
           child: Container(
               width: 100,
@@ -46,12 +39,11 @@ class SplashPage extends StatelessWidget {
               ),
               child: Center(
                   child: Text(
-                    "Next",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ))),
+                "Next",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ))),
         ),
       ],
     );
   }
 }
-

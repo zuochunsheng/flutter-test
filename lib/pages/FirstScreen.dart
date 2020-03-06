@@ -1,13 +1,10 @@
 
-
 import 'package:flutter/material.dart';
-
-import 'SecondScreen.dart';
+import 'package:flutter_app/pages/SecondScreen.dart';
 
 class FirstScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Scaffold(
       appBar: AppBar(
         title: Text(" 导航页面"),
@@ -16,9 +13,8 @@ class FirstScreen extends StatelessWidget{
         child: RaisedButton(
           child: Text('查看商品详情页面'),
             onPressed: (){
-               Navigator.push(context,
-                   MaterialPageRoute(builder: (context) =>SecondScreen())
-              );
+               //Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+               Navigator.pushNamed(context, "/second");
             }
         ),
       ),
