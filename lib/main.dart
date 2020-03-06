@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_app/chenBingCode/DecorationWidgets.dart';
 import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
+import 'package:flutter_app/chenBingCode/SplashPage.dart';
 import 'package:flutter_app/chenBingCode/StatefulWidget.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
 import 'package:flutter_app/pages/ProductList.dart';
@@ -71,37 +72,40 @@ void main() => runApp(MaterialApp(
   title: "Container 布局容器示例",
   home:
   //MyStatefulWidget()
-  Scaffold(
-    appBar: AppBar(title: Text("布局"),),
+  SplashPage()
 
-    body: Container(
-      color: Colors.grey[300],
-      child: Center(
-          child:
-
-          //customScrollView
-
-          //gridCount
-          //buildGrid2()
-         // buildGrid3()
-          //buildGrid4()
-
-          //singleChildScrollView
-          //PageviewWidget()
-
-          //boxDecoration
-          //clipRRect
-          //clipOval
-          //clipPath
-
-          //list
-          //backdropFilter
-
-          //FavoriteStatefulWidget()
-          ParentWidget()
-      ),
-    ),
-  ),
+//  Scaffold(
+//    appBar: AppBar(title: Text("布局"),),
+//
+//    body: Container(
+//      color: Colors.grey[300],
+//      child: Center(
+//          child:
+//
+//          //customScrollView
+//
+//          //gridCount
+//          //buildGrid2()
+//         // buildGrid3()
+//          //buildGrid4()
+//
+//          //singleChildScrollView
+//          //PageviewWidget()
+//
+//          //boxDecoration
+//          //clipRRect
+//          //clipOval
+//          //clipPath
+//
+//          //list
+//          //backdropFilter
+//
+//          //FavoriteStatefulWidget()
+//          ParentWidget()
+//
+//      ),
+//    ),
+//  ),
 
 ));
 
