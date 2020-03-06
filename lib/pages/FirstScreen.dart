@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/bean/PageData.dart';
 import 'package:flutter_app/pages/SecondScreen.dart';
 
 class FirstScreen extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
