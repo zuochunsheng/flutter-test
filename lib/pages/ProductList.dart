@@ -24,6 +24,7 @@ class ProductList extends StatelessWidget {
             return new ListTile(
               title: Text(products[index].title + "，" + products[index].description),
               onTap: (){
+                //跳转传参数
                 Navigator.push(context,
                     MaterialPageRoute(
                       builder: (context) => ProductDetail(product:products[index])

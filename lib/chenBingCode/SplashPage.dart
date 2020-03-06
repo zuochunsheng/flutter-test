@@ -26,7 +26,7 @@ class SplashPage extends StatelessWidget {
 //              //MyStatefulWidget();
 //            }));
 
-            Navigator.pushNamed(context, "/home");
+            Navigator.pushNamed(context, "/productList");
           },
           child: Container(
               width: 100,

@@ -10,6 +10,8 @@ import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
 import 'package:flutter_app/chenBingCode/SplashPage.dart';
 import 'package:flutter_app/chenBingCode/StatefulWidget.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
+import 'package:flutter_app/pages/ProductDetail.dart';
+import 'package:flutter_app/pages/ProductList.dart';
 import 'package:flutter_app/pages/ProductList.dart';
 
 import 'bean/Product.dart';
@@ -75,12 +77,16 @@ void main() => runApp(MaterialApp(
     initialRoute: '/',
     routes: {
       // 注册一个页面
-      '/': (context) => FirstScreen(),
+      '/': (context) => SplashPage(),
+      '/first': (context) => FirstScreen(),
+      '/second': (context) => SecondScreen(),
       // 注册第二个页面
       '/home': (context) => HomePage(),
       '/myStatefulWidget': (context) => MyStatefulWidget(),
-      '/second': (context) => SecondScreen(),
-      '/splash': (context) => SplashPage(),
+
+     // '/productList': (context) => ProductList(),
+      '/productList': (context) => ProductList(products: new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i"),),),
+      '/productDetail': (context) => ProductDetail(),
     },
 
   title: "Container 布局容器示例",
