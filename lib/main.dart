@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/anim/anim_page.dart';
 import 'package:flutter_app/chenBingCode/DecorationWidgets.dart';
 import 'package:flutter_app/chenBingCode/DetailScreen.dart';
 import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
@@ -75,26 +76,27 @@ var colors = [
 
 
 void main() => runApp(MaterialApp(
-  // 设置第一个页面，即启动页
+    // 设置第一个页面，即启动页
     initialRoute: '/',
-    routes: {
-      // 注册一个页面
-      '/': (context) => SplashPage(),
-      '/first': (context) => FirstScreen(),
-      '/second': (context) => SecondScreen(),
-      // 注册第二个页面
-      '/home': (context) => HomePage(),
-      '/myStatefulWidget': (context) => MyStatefulWidget(),
-
-     // '/productList': (context) => ProductList(),
-      '/productList': (context) => ProductList(products: new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i"),),),
-      '/productDetail': (context) => ProductDetail(),
-    },
+//    routes: {
+//      // 注册一个页面
+//      '/': (context) => SplashPage(),
+//      '/first': (context) => FirstScreen(),
+//      '/second': (context) => SecondScreen(),
+//      // 注册第二个页面
+//      '/home': (context) => HomePage(),
+//      '/myStatefulWidget': (context) => MyStatefulWidget(),
+//
+//     // '/productList': (context) => ProductList(),
+//      '/productList': (context) => ProductList(products: new List.generate(20, (i)=> new Product("商品key $i","商品详细信息 value $i"),),),
+//      '/productDetail': (context) => ProductDetail(),
+//    },
 
   title: "Container 布局容器示例",
-  //home:
+  home:
   //MyStatefulWidget()
   //SplashPage()
+   AnimPage2()
 
 //  Scaffold(
 //    appBar: AppBar(title: Text("布局"),),
