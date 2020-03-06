@@ -14,15 +14,16 @@ class _AnimPage2 extends State<AnimPage2> with TickerProviderStateMixin{
   var h = 100.0;
 
   Animation<double> animation;
-  Animation<double> animation2;
+  //Animation<double> animation2;
+
+  Animation animation3;
   AnimationController animationController;
 
 
   @override
   void initState() {
     super.initState();
-    //1 创建 AnimationController，用于控制动画
-    // 必须提供动画时间
+    //1 创建 AnimationController，用于控制动画 // 必须提供动画时间
     animationController = new AnimationController(
         vsync: this,
         duration: Duration(milliseconds: 1500),
@@ -37,10 +38,20 @@ class _AnimPage2 extends State<AnimPage2> with TickerProviderStateMixin{
         end: 100.0*2.0
     ).animate(animationController);
 
-    animation2 = Tween<double>(
-        begin: 0.0,
-        end: 1.0
-    ).animate(animationController);
+//    animation2 = Tween<double>(
+//        begin: 0.0,
+//        end: 1.0
+//    ).animate(animationController);
+
+    // 创建 CurveAnimation
+     animation3 = CurvedAnimation(
+        parent: animationController,
+        curve:
+        Curves.bounceIn
+        //Curves.decelerate
+        //Curves.linear
+       //_BounceInCurve
+    );
 
     //3
     animationController.addListener((){
@@ -83,8 +94,8 @@ class _AnimPage2 extends State<AnimPage2> with TickerProviderStateMixin{
         child: SizedBox(
           // 获取插值器计算出的 value
           // 作为属性值
-          width: animation.value + animation2.value,
-          height: animation.value  + animation2.value,
+          width:  animation.value,
+          height: animation.value,
           child: Container(
             color: Colors.lightBlue,
           ),
