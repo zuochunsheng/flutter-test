@@ -42,3 +42,20 @@ class AnimatedImage extends AnimatedWidget {
     );
   }
 }
+
+
+//实现方式很简单，就是使用 Hero 包裹两个页面间的共享元素。
+//其中关键就是共享元素的 tag 必须相同。
+//剩余的处理 Flutter 已经帮开发者完成了。
+var hero = Hero(
+  // tag 是关键
+  tag: "photo.tag",
+  child: ClipRect(
+    child: Image.asset(
+      "photo.assetName",
+      package: "photo.assetPackage",
+      fit: BoxFit.cover,
+    ),
+  ),
+);
+
