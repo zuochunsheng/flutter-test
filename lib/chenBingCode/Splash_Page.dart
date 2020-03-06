@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/anim/pageRoute_page.dart';
 import 'package:flutter_app/bean/PageData.dart';
 import 'package:flutter_app/chenBingCode/home_page.dart';
 
@@ -50,11 +51,39 @@ class _SplashPage extends State<SplashPage> {
   void jumpToHome(BuildContext context) async {
     var data = PageData('Come form SplashPage!');
     // 使用 Navigator 跳转页面
-    var result = await Navigator.push(
+    var result1 = await Navigator.push(
         context, MaterialPageRoute(
             builder: (context) => HomePage(
               data: data,
-            )));
+            )
+      )
+    );
+
+    //通常，在页面跳转的时候会使用 Flutter 提供的 MaterialPageRoute，
+    // 它提供了默认的页面跳转动画。
+    var result = await Navigator.push(
+        context, PageRouteBuilder(pageBuilder:
+        (BuildContext context, Animation animation,
+        Animation secondaryAnimation) {
+        return  ScaleTransition(
+              scale: animation,
+              alignment: Alignment.bottomRight,
+              child: HomePage(data: data)
+          );
+        })
+    );
+
+    //builder 有问题
+//    var result2 = await Navigator.push(
+//        context, FadeRoute(
+//          builder: (context) => {
+//            HomePage(
+//              data: data,
+//            )
+//          }
+//      )
+//    );
+
     if (result != null) {
       setState(() {
         text = result;
