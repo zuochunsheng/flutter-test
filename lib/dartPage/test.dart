@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'dart:math';
+import 'package:flutter_app/bean/User.dart';
+
 import 'Impostor.dart';
 import 'Person.dart';
 import 'Point.dart';
@@ -230,6 +233,18 @@ class Test {
 
     print(greetBob(Impostor()));
 
+
+
+    String data = "{\"name\":\"liMing\",\"email\":\"44@qq.com\" }";
+
+    // 解析Json
+    var  userMap = jsonDecode(data);
+    //var user = User.fromMap(userMap);
+
+
+   User user = new User("wanglei", "55@sina");
+    // 对象转Json
+    var userJson = jsonEncode(user);
   }
 
 
