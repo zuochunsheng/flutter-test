@@ -44,7 +44,17 @@ class _SplashPage extends State<SplashPage> {
               ),
               child: Text(
                 text,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    inherit: false,
+                    textBaseline: TextBaseline.alphabetic,
+                   // 字体组名称
+                   // fontFamily: 'Raleway',
+                  // 根据 weight 选择具体的字体
+                    fontWeight: FontWeight.w500,
+
+                ),
               )),
         ),
         Container(
