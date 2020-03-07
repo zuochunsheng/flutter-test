@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/PageData.dart';
+import 'package:flutter_app/chenBingCode/notification_page.dart';
 
 class HomePage extends StatelessWidget {
   final PageData data;
@@ -17,7 +18,11 @@ class HomePage extends StatelessWidget {
           ),
           body: GestureDetector(
             onTap: () {
+
               print('onTap');
+              // 只需要调用 dispatch 即可
+              MyNotification('Haha!').dispatch(context);
+
               Navigator.pop(context, 'HomePage 按钮返回!');
             },
             child: Container(
