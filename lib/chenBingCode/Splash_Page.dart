@@ -24,7 +24,10 @@ class _SplashPage extends State<SplashPage> {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(splashUrl))),
+              image: DecorationImage(
+                  image: NetworkImage(splashUrl)
+              )
+          ),
         ),
         GestureDetector(
           // 设置点击事件
@@ -44,6 +47,21 @@ class _SplashPage extends State<SplashPage> {
                 style: TextStyle(color: Colors.white, fontSize: 16),
               )),
         ),
+        Container(
+          margin: EdgeInsets.only(top: 40),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            color: Colors.amberAccent,
+
+          ),
+          //在使用第三方库资源的时候，需要加上包名。
+          child: Image.asset(
+            // 图片路径
+            'places/india_chennai_flower_market.png',
+            // 包名
+            package: 'flutter_gallery_assets',
+          ),
+        )
       ],
     );
   }

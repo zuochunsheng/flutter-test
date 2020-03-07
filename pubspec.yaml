@@ -42,6 +42,8 @@ dependencies:
 #      // 远程仓库中的包的相对路径
 #      path: packages/package1
 
+  # 2.1 添加依赖插件图片资源
+  flutter_gallery_assets: 0.1.6
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +67,11 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
+#    // 表示引入根目录下的 images 文件夹下的所有资源文件
+#    - images/
+#    // 只添加 images/ 下的 pci.png
+#    - images/pci.png
+
     - images/ganen.jpg
     - images/hua.jpg
     - images/xianhua.jpg
@@ -73,7 +80,8 @@ flutter:
     - assets/icons/searchLogo.png
     - assets/icons/share2.png
 
-
+   # 2.2 添加依赖插件图片资源
+   #- packages/flutter_gallery_assets/places/india_chennai_flower_market.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
