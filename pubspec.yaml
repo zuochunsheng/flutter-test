@@ -23,11 +23,30 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  english_words: ^3.1.0   # 新增了这一行
+
+  english_words: ^3.1.3   # 新增了这一行 三方包
+
+#  从本地添加包
+#    // 包名
+#    pkg1:
+#      // 本地包路径
+#      path: ../../code/pkg1
+
+
+#  从git远程仓库添加包
+#  // 包名
+#  pkg1:
+#    git:
+#      // 远程仓库 url
+#      url: git://github.com/flutter/packages.git
+#      // 远程仓库中的包的相对路径
+#      path: packages/package1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 
 # For information on the generic Dart part of this file, see the
