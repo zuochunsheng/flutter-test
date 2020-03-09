@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 
 
@@ -50,6 +51,7 @@ class _PageviewWidgetState extends State<PageviewWidget>{
 
 // SingleChildScrollView
 var singleChildScrollView = SingleChildScrollView(
+  scrollDirection: Axis.vertical,
   child: Column(
     children: _buildColumnItems(),
   ),
@@ -71,7 +73,7 @@ _buildColumnItems() {
 }
 
 
-//----- Grid ----------
+//----- Grid 4种方式----------
 
 var gridCount = GridView.count(
   //水平子Widget之间间距

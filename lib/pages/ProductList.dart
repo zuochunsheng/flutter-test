@@ -28,7 +28,8 @@ class ProductList extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(
                       builder: (context) => ProductDetail(product:products[index])
-                    ));
+                    )
+                );
               },
             );
           })

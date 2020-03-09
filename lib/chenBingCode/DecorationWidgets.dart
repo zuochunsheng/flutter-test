@@ -14,7 +14,7 @@ var willPopScope = WillPopScope(
       print('onWillPop');
       // 返回 true 表示允许返回
       // 返回 false 表示不允许返回
-      return true;
+      return false;
     }
 );
 
@@ -42,7 +42,7 @@ var safeArea = SafeArea(
     child: MyWidget(Colors.green),
 );
 
-
+//listView 不一定是列表 也可以是可滚动的布局
 var list = ListView(
   children: <Widget>[
     MyWidget(Colors.green),
@@ -62,7 +62,7 @@ class MyWidget extends StatelessWidget  {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return Container(
       width: 100,
       height: 50,
@@ -126,7 +126,9 @@ var boxDecoration  = Container(
         width: 8
     ),
     //borderRadius: BorderRadius.all(Radius.circular(8)),
-    //gradient: Gradient.lerp(22, 22, 22)
+    gradient: SweepGradient(//RadialGradient
+      colors: <Color>[Colors.red, Colors.green, Colors.blue],
+    ),
   ),
 
   child: Center(
@@ -134,7 +136,9 @@ var boxDecoration  = Container(
       "Box Decoration",
       //textDirection: TextDirection.ltr,
       style: TextStyle(
-          color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
+          color: Colors.black, fontSize: 26,
+          fontWeight: FontWeight.bold
+      ),
     ),
   ),
 );

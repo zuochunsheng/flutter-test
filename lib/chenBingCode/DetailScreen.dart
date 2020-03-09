@@ -17,7 +17,7 @@ import 'package:flutter_app/bean/PageData.dart';
 //      body: Container(
 //        color: Colors.white,
 //        child: Center(
-//          child: Text(data != null ? data.data : 'There is no data!'),
+//          child: Text( != nuldatal ? data.data : 'There is no data!'),
 //        ),
 //      ),
 //    );

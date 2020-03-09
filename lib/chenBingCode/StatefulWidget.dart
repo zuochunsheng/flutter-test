@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+// stete 声命周期
 class FavoriteStatefulWidget extends StatefulWidget {
 
   // 必须重写 createState()，返回一个 State，它包含了视图和交互逻辑

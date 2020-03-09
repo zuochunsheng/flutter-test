@@ -2,6 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/PageData.dart';
 import 'package:flutter_app/chenBingCode/notification_page.dart';
+import 'package:flutter_app/net/HttpClient.dart';
+
+
+
 
 class HomePage extends StatelessWidget {
   final PageData data;
@@ -12,26 +16,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      child: Scaffold(
-          appBar: AppBar(
-            title: Text('Home Page'),
-          ),
-          body: GestureDetector(
-            onTap: () {
-
-              print('onTap');
-              // 只需要调用 dispatch 即可
-              MyNotification('Haha!').dispatch(context);
-
-              Navigator.pop(context, 'HomePage 按钮返回!');
-            },
-            child: Container(
-              color: Colors.white,
-              child: Center(
-                child: Text(data != null ? data.data : 'There is no data!'),
-              ),
+        child: Scaffold(
+            appBar: AppBar(
+              title: Text('Home Page'),
             ),
-          )),
+            body: GestureDetector(
+              onTap: () {
+                //print('onTap');
+                // 只需要调用 dispatch 即可
+                //MyNotification('Haha!').dispatch(context);
+
+                //Navigator.pop(context, 'HomePage 按钮返回!');
+
+
+                getpost();
+              },
+              child: Container(
+                color: Colors.white,
+                child: Center(
+                  child: Text(data != null ? data.data : 'There is no data!'),
+                ),
+              ),
+            )),
         //当点击返回时，会触发回调
         onWillPop: () async {
           print('onWillPop');
@@ -41,7 +47,7 @@ class HomePage extends StatelessWidget {
           //return false;
         }
     );
-
   }
-
 }
+
+

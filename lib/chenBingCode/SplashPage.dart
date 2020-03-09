@@ -18,7 +18,7 @@ class SplashPage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: NetworkImage(splashUrl),
+               image: NetworkImage(splashUrl),
           )),
         ),
         GestureDetector(
