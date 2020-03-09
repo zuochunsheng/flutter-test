@@ -2,6 +2,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_app/bean/ResponseBody.dart';
+
 Future<void> getpost() async {
 
   print('网络请求');
@@ -21,6 +23,18 @@ Future<void> getpost() async {
     // 转换 response，获取结果
     var responseBody = await response.transform(utf8.decoder).join();
     print(responseBody);
+
+//    // 传入 fromMap 函数
+//    Response responseData = Response.parse(responseBody, NewsData.fromMap);
+//    NewsData data = responseData.result.data;
+//
+//
+//    // 传入 List 的 fromMapList 函数
+//    Response responseData = Response.parse(responseBody, NewsData.fromMapList);
+//    List<NewsData> data = responseData.result.data;
+
+
+
   }
 
   httpClient.close();
