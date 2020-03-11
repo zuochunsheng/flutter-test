@@ -4,6 +4,9 @@ import 'dart:io';
 
 import 'package:flutter_app/bean/ResponseBody.dart';
 
+//混合开发 https://juejin.im/post/5c90d2196fb9a070b96f03b3
+
+
 Future<void> getpost() async {
 
   print('网络请求');
