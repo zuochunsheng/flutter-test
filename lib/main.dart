@@ -14,6 +14,7 @@ import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
 import 'package:flutter_app/chenBingCode/Splash_Page.dart';
 import 'package:flutter_app/chenBingCode/StatefulWidget.dart';
 import 'package:flutter_app/chenBingCode/home_page.dart';
+import 'package:flutter_app/floatdiag/pop.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
 import 'package:flutter_app/pages/ProductDetail.dart';
 import 'package:flutter_app/pages/ProductList.dart';
@@ -82,7 +83,7 @@ void main() => runApp(MaterialApp(
     initialRoute: '/',
     routes: {
       // 注册一个页面
-      '/': (context) => SplashPage(),
+      '/splash': (context) => SplashPage(),
       '/first': (context) => FirstScreen(),
       '/second': (context) => SecondScreen(),
       // 注册第二个页面
@@ -95,45 +96,46 @@ void main() => runApp(MaterialApp(
     },
 
   title: "Container 布局容器示例",
-  //home:
+  home:
   //MyStatefulWidget()
   //SplashPage()
 
    //AnimPage2()
   //ScaleAnimationRoute()
 
-//  Scaffold(
-//    appBar: AppBar(title: Text("布局"),),
-//
-//    body: Container(
-//      color: Colors.grey[300],
-//      child: Center(
-//          child:
-//
-//          //customScrollView
-//
-//          //gridCount
-//          //buildGrid2()
-//         // buildGrid3()
-//          //buildGrid4()
-//
-//          //singleChildScrollView
-//          //PageviewWidget()
-//
-//          //boxDecoration
-//          //clipRRect
-//          //clipOval
-//          //clipPath
-//
-//          //list
-//          //backdropFilter
-//
-//          //FavoriteStatefulWidget()
-//          ParentWidget()
-//
-//      ),
-//    ),
-//  ),
+  Scaffold(
+    appBar: AppBar(title: Text("布局"),),
+
+    body: Container(
+      color: Colors.grey[300],
+      child: Center(
+          child:
+
+          //customScrollView
+
+          //gridCount
+          //buildGrid2()
+         // buildGrid3()
+          //buildGrid4()
+
+          //singleChildScrollView
+          //PageviewWidget()
+
+          //boxDecoration
+          //clipRRect
+          //clipOval
+          //clipPath
+
+          //list
+          //backdropFilter
+
+          //FavoriteStatefulWidget()
+          //ParentWidget()
+        MessageForm()
+
+      ),
+    ),
+  ),
 
 ));
 
