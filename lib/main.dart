@@ -14,6 +14,7 @@ import 'package:flutter_app/chenBingCode/GestureDetectorWidget.dart';
 import 'package:flutter_app/chenBingCode/Splash_Page.dart';
 import 'package:flutter_app/chenBingCode/StatefulWidget.dart';
 import 'package:flutter_app/chenBingCode/home_page.dart';
+import 'package:flutter_app/chenBingCode/paint.dart';
 import 'package:flutter_app/chenBingCode/pop.dart';
 import 'package:flutter_app/pages/FirstScreen.dart';
 import 'package:flutter_app/pages/ProductDetail.dart';
@@ -132,6 +133,7 @@ void main() => runApp(MaterialApp(
           //FavoriteStatefulWidget()
           //ParentWidget()
         MessageForm()
+         // MyPainter()
 
       ),
     ),
