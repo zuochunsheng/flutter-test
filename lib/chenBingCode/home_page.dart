@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/PageData.dart';
 import 'package:flutter_app/chenBingCode/notification_page.dart';
-import 'package:flutter_app/net/HttpClient.dart';
+import 'package:flutter_app/chenBingCode/HttpClient.dart';
 
 
 
